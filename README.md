@@ -1,4 +1,5 @@
 # '아티팩트_집' (Artifacts_zip)
+![artifacts_zip_01](https://github.com/user-attachments/assets/2b0772c4-5586-497a-a2d1-9c21bb41f5bf)
 
 ## 프로젝트 소개
 '아티팩트_집'은 Claude AI의 '아티팩트' 기능을 활용하여 생성된 슬라이드를 쉽게 관리하고 표시할 수 있는 오픈소스 프로젝트입니다. 이 도구는 Claude가 생성한 여러 슬라이드를 하나의 프레젠테이션으로 통합하여 사용자가 더 긴 프레젠테이션을 만들 수 있도록 도와줍니다.
