@@ -1,5 +1,5 @@
 {
-  "name": "learnai",
+  "name": "artimoa",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,10 +8,16 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "framer-motion": "^11.3.19",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1",
+    "jspdf-autotable": "^3.8.2",
     "lucide-react": "^0.417.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
+    "react-to-print": "^2.15.1",
+    "recharts": "^2.12.7",
+    "three": "^0.167.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

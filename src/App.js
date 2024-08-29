@@ -1,19 +1,15 @@
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, Import, Menu } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Menu } from 'lucide-react';
 import Slide from './components/Slide';
 import Sidebar from './components/Sidebar';
-import Slide1_1 from './slides/slide1';
-import Slide1_2 from './slides/slide2';
-import Slide3 from './slides/slide3';
-import Slide4 from './slides/slide4';
-import Slide5 from './slides/slide5';
-import Slide6 from './slides/slide6';
-import Slide7 from './slides/slide7';
-import Slide8 from './slides/slide8';
-import Slide9 from './slides/slide9';
+
+import Slide1 from './slides/Slide1';
+import Slide2 from './slides/Slide2';
+import Slide3 from './slides/Slide3';
+
 
 const IntegratedPresentation = () => {
-  const slides = [Slide9, Slide1_1, Slide3, Slide1_2, Slide4, Slide5, Slide6, Slide7, Slide8];
+  const slides = [Slide1, Slide2, Slide3];
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -40,7 +36,7 @@ const IntegratedPresentation = () => {
             <Menu size={24} />
           </button>
           <Slide
-            Content={slides[currentSlide].Content}
+            Content={slides[currentSlide]}
             title={slides[currentSlide].title}
             chapterNumber={slides[currentSlide].chapterNumber}
           />

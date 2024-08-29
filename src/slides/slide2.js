@@ -1,111 +1,105 @@
-// src/slides/Slide1_2.js
 import React from 'react';
-import { ArrowRight, Clock, ThumbsUp, Repeat, Shield, BarChart, DollarSign, Book, Zap, BookOpen, Package } from 'lucide-react';
+import { ArrowDown, Brain, Book, Cog, Search, Zap, RefreshCw } from 'lucide-react';
 
-class Slide1_2 {
-  static title = "학습 vs 솔루션 구매 비교";
-  static chapterNumber = "1.3";
+const Slide2 = () => {
+  const DiagramBox = ({ title, children, color }) => (
+    <div className={`border-2 ${color} rounded-lg p-4 flex flex-col items-center justify-center w-full h-auto`}>
+      <h3 className="font-bold text-lg mb-2">{title}</h3>
+      {children}
+    </div>
+  );
 
-  static DiagramBox({ title, children, color }) {
-    return (
-      <div className={`border-2 ${color} rounded-lg p-4 flex flex-col items-center justify-center w-72 h-auto`}>
-        <h3 className="font-bold text-lg mb-2">{title}</h3>
-        {children}
+  const DetailItem = ({ icon, text, color }) => (
+    <div className={`flex items-center mt-2 ${color}`}>
+      {icon}
+      <span className="text-xs ml-1">{text}</span>
+    </div>
+  );
+
+  const IconCircle = ({ icon: Icon, label }) => (
+    <div className="flex flex-col items-center justify-center mb-4">
+      <div className="w-16 h-16 rounded-full border-2 border-gray-300 flex items-center justify-center bg-white mb-2">
+        <Icon size={32} className="text-blue-500" />
       </div>
-    );
-  }
+      <span className="text-xs text-center">{label}</span>
+    </div>
+  );
 
-  static DiagramArrow() {
-    return (
-      <div className="flex items-center justify-center w-16">
-        <ArrowRight className="text-gray-500" />
-      </div>
-    );
-  }
+  const mainAreas = [
+    {
+      title: "1. 정보처리, 자동화",
+      description: "핵심역량에 집중, AI로 비핵심 부분 대체",
+      icon: RefreshCw,
+      color: "border-blue-500"
+    },
+    {
+      title: "2. 능력",
+      description: "AI의 능력을 활용해 새로운 시도",
+      icon: Zap,
+      color: "border-green-500"
+    },
+    {
+      title: "3. 광범위한 지식 접근",
+      description: "다양한 분야의 전문 지식 활용",
+      icon: Search,
+      color: "border-purple-500"
+    }
+  ];
 
-  static DetailItem({ icon, text, color }) {
-    return (
-      <div className={`flex items-center mt-2 ${color}`}>
-        {icon}
-        <span className="text-xs ml-1">{text}</span>
-      </div>
-    );
-  }
+  const coreElements = [
+    {
+      title: "1. 능력",
+      description: "학습 없이 특정 작업 수행 (전문 기술)",
+      icon: Brain,
+      color: "border-red-500"
+    },
+    {
+      title: "2. 지식",
+      description: "필요 시 빠른 정보 검색 및 개념 변환 (광범위한 지식)",
+      icon: Book,
+      color: "border-yellow-500"
+    },
+    {
+      title: "3. 처리",
+      description: "지시에 따른 정보 가공 및 정리 (정보 처리)",
+      icon: Cog,
+      color: "border-blue-500"
+    }
+  ];
 
-  static IconCircle({ children, label }) {
-    return (
-      <div className="flex flex-col items-center justify-center mr-6">
-        <div className="w-16 h-16 rounded-full border-2 border-gray-300 flex items-center justify-center bg-white mb-2">
-          {children}
-        </div>
-        <span className="text-xs text-center">{label}</span>
-      </div>
-    );
-  }
-
-  static Content() {
-    return (
-      <div className="flex flex-col items-center rounded-xl">
-        <h2 className="text-2xl font-bold mb-6">학습 vs 솔루션 구매 비교</h2>
-        <div className="flex flex-col space-y-8">
-          <div className="flex items-center">
-            <Slide1_2.IconCircle label="강의">
-              <BookOpen size={32} className="text-blue-500" />
-            </Slide1_2.IconCircle>
-            <div className="flex-grow">
-              <Slide1_2.DiagramBox title="학습을 통한 해결" color="border-blue-500">
-                <div className="flex items-center mb-2">
-                  <DollarSign className="text-green-500 mr-2" />
-                  <Book className="text-blue-500 mr-2" />
-                  <ArrowRight className="text-gray-500 mr-2" />
-                  <span className="text-purple-500 font-bold">지식</span>
-                </div>
-                <p className="text-sm text-center">지식 습득 후 직접 해결</p>
-                <Slide1_2.DetailItem icon={<Clock size={16} />} text="긴 학습 시간 필요" color="text-red-500" />
-                <Slide1_2.DetailItem icon={<BarChart size={16} />} text="초기 생산성 낮음" color="text-red-500" />
-                <Slide1_2.DetailItem icon={<Repeat size={16} />} text="반복적인 연습 필요" color="text-orange-500" />
-              </Slide1_2.DiagramBox>
-            </div>
-            <Slide1_2.DiagramArrow />
-            <Slide1_2.DiagramBox title="결과" color="border-blue-500">
-              <span className="text-blue-500 text-2xl mb-2">🛠️</span>
-              <p className="text-sm text-center">문제 해결 능력 향상</p>
-              <p className="text-sm text-center">장기적 이점</p>
-              <Slide1_2.DetailItem icon={<ThumbsUp size={16} />} text="구매 설득력 낮음" color="text-orange-500" />
-              <Slide1_2.DetailItem icon={<Clock size={16} />} text="투자 대비 효과 지연" color="text-red-500" />
-            </Slide1_2.DiagramBox>
-          </div>
-          <div className="flex items-center">
-            <Slide1_2.IconCircle label="솔루션">
-              <Package size={32} className="text-green-500" />
-            </Slide1_2.IconCircle>
-            <div className="flex-grow">
-              <Slide1_2.DiagramBox title="솔루션 구매" color="border-green-500">
-                <div className="flex items-center mb-2">
-                  <DollarSign className="text-green-500 mr-2" />
-                  <ArrowRight className="text-gray-500 mr-2" />
-                  <span className="text-green-500 font-bold">솔루션</span>
-                </div>
-                <p className="text-sm text-center">외부 솔루션으로 즉시 해결</p>
-                <Slide1_2.DetailItem icon={<Clock size={16} />} text="즉각적인 적용 가능" color="text-green-500" />
-                <Slide1_2.DetailItem icon={<Shield size={16} />} text="전문가에 의해 검증됨" color="text-blue-500" />
-                <Slide1_2.DetailItem icon={<BarChart size={16} />} text="빠른 생산성 향상" color="text-green-500" />
-              </Slide1_2.DiagramBox>
-            </div>
-            <Slide1_2.DiagramArrow />
-            <Slide1_2.DiagramBox title="결과" color="border-green-500">
-              <Zap className="text-yellow-500 mb-2" size={32} />
-              <p className="text-sm text-center">빠른 문제 해결</p>
-              <p className="text-sm text-center">효율성 증대</p>
-              <Slide1_2.DetailItem icon={<ThumbsUp size={16} />} text="구매 설득력 높음" color="text-green-500" />
-              <Slide1_2.DetailItem icon={<DollarSign size={16} />} text="비용 대비 빠른 ROI" color="text-green-500" />
-              <Slide1_2.DetailItem icon={<Repeat size={16} />} text="지속적인 업데이트/지원" color="text-blue-500" />
-            </Slide1_2.DiagramBox>
-          </div>
+  return (
+    <div className="rounded-xl">
+      <div className="mb-8">
+        <div className="grid grid-cols-3 gap-6">
+          {mainAreas.map((area, index) => (
+            <DiagramBox key={index} title={area.title} color={area.color}>
+              <IconCircle icon={area.icon} label={area.title} />
+              <p className="text-sm text-center">{area.description}</p>
+            </DiagramBox>
+          ))}
         </div>
       </div>
-    );
-  }
+
+      <div>
+        <h3 className="text-2xl font-semibold mb-6 text-center">AI 활용의 3요소</h3>
+        <div className="grid grid-cols-3 gap-6">
+          {coreElements.map((element, index) => (
+            <DiagramBox key={index} title={element.title} color={element.color}>
+              <IconCircle icon={element.icon} label={element.title} />
+              <p className="text-sm text-center mb-4">{element.description}</p>
+              <DetailItem
+                icon={<element.icon size={16} />}
+                text={element.description}
+                color="text-gray-700"
+              />
+            </DiagramBox>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 }
+Slide2.title = "AI를 어디에 써야 하는가? (다른버전)";
+Slide2.chapterNumber = "2.";
 
-export default Slide1_2;
+export default Slide2;

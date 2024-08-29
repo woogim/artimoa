@@ -1,51 +1,133 @@
-// src/slides/Slide1_1.js
 import React from 'react';
+import { Car, Bike, Train, Plane, Truck, Ship, Bus } from 'lucide-react';
 
-class Slide1_1 {
-  static title = "AI를 어디에 써야 하는가?";
-  static chapterNumber = "1.1";
+const Slide1 = () => {
+  const TransportCard = ({ icon: Icon, title, specs }) => (
+    <div className="bg-white bg-opacity-70 p-4 rounded-lg shadow-sm mb-3 backdrop-blur-sm">
+      <div className="flex items-center mb-2">
+        <Icon className="mr-2" size={20} />
+        <h3 className="text-sm font-semibold">{title}</h3>
+      </div>
+      <ul className="text-xs text-gray-600 space-y-1">
+        {specs.map((spec, index) => (
+          <li key={index} className="flex justify-between">
+            <span>{spec.name}:</span>
+            <span className="font-medium">{spec.value}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 
-  static Content() {
-    return (
-      <>
-        <section>
-          <h3 className="text-xl font-semibold text-blue-600 mb-4">AI의 주요 활용 영역</h3>
-          <ul className="list-disc pl-5 space-y-2">
-            <li>핵심적인 업무에 집중하고, 비핵심 업무를 AI에 위임, 자동화하여 시간 확보, 감정 절약</li>
-            <li>배울 필요 없이 새로운 능력 확용</li>
-            <li>어떤 분야에 전문가가 아니어도 광범위한 지식에 접근하여 필요한 지식 사용 가능</li>
-          </ul>
-        </section>
-        <section>
-          <h3 className="text-xl font-semibold text-blue-600 mb-4">AI 활용의 3요소</h3>
-          <div className="grid grid-cols-3 gap-4">
-            <div>
-              <h4 className="font-semibold mb-2">능력 (전문 기술)</h4>
-              <ul className="list-disc pl-5 space-y-1 text-sm">
-                <li>배우지 않은 전문 작업 수행</li>
-                <li>예: 그림, 영상제작, 번역, 코딩, 노래 제작, AI 보이스</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-2">지식 (광범위한 지식)</h4>
-              <ul className="list-disc pl-5 space-y-1 text-sm">
-                <li>필요 시 빠른 정보 검색</li>
-                <li>개념, 느낌을 단어로 변환, 원하는 정보 탐색</li>
-                <li>(뇌용량만 제공해도 원하는 것을 찾아줄 수 있음)</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-2">처리 (정보 처리)</h4>
-              <ul className="list-disc pl-5 space-y-1 text-sm">
-                <li>지식에 따른 정보 정리 및 가공</li>
-                <li>예: 텍스트 정리</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-      </>
-    );
-  }
-}
+  const TransportColumn = ({ title, transports }) => (
+    <div className="flex-1 min-w-[250px] max-w-[300px] bg-white bg-opacity-30 p-4 rounded-lg backdrop-blur-sm">
+      <h2 className="text-lg font-semibold mb-4 text-center text-gray-800">{title}</h2>
+      <div className="space-y-3">
+        {transports.map((transport, index) => (
+          <TransportCard key={index} {...transport} />
+        ))}
+      </div>
+    </div>
+  );
 
-export default Slide1_1;
+  const transports = [
+    {
+      icon: Car,
+      title: '자동차',
+      specs: [
+        { name: '속도', value: '~120 km/h' },
+        { name: '수용 인원', value: '4-5명' },
+        { name: '연료', value: '가솔린/전기' },
+      ],
+    },
+    {
+      icon: Bike,
+      title: '자전거',
+      specs: [
+        { name: '속도', value: '~25 km/h' },
+        { name: '수용 인원', value: '1-2명' },
+        { name: '연료', value: '인력' },
+      ],
+    },
+    {
+      icon: Train,
+      title: '기차',
+      specs: [
+        { name: '속도', value: '~300 km/h' },
+        { name: '수용 인원', value: '수백 명' },
+        { name: '연료', value: '전기/디젤' },
+      ],
+    },
+    {
+      icon: Plane,
+      title: '비행기',
+      specs: [
+        { name: '속도', value: '~900 km/h' },
+        { name: '수용 인원', value: '수백 명' },
+        { name: '연료', value: '항공유' },
+      ],
+    },
+    {
+      icon: Bike,
+      title: '킥보드',
+      specs: [
+        { name: '속도', value: '~25 km/h' },
+        { name: '수용 인원', value: '1명' },
+        { name: '연료', value: '전기/인력' },
+      ],
+    },
+    {
+      icon: Bus,
+      title: '버스',
+      specs: [
+        { name: '속도', value: '~80 km/h' },
+        { name: '수용 인원', value: '40-80명' },
+        { name: '연료', value: '디젤/CNG/전기' },
+      ],
+    },
+    {
+      icon: Ship,
+      title: '배',
+      specs: [
+        { name: '속도', value: '~30 knots' },
+        { name: '수용 인원', value: '수백-수천 명' },
+        { name: '연료', value: '중유/디젤' },
+      ],
+    },
+    {
+      icon: Truck,
+      title: '트럭',
+      specs: [
+        { name: '속도', value: '~90 km/h' },
+        { name: '수용 인원', value: '2-3명' },
+        { name: '연료', value: '디젤/가솔린' },
+      ],
+    },
+  ];
+
+  const columns = [
+    { title: '개인 이동수단', filter: t => ['자전거', '킥보드'].includes(t.title) },
+    { title: '도로 교통', filter: t => ['자동차', '버스', '트럭'].includes(t.title) },
+    { title: '대중 교통', filter: t => ['기차', '비행기', '배'].includes(t.title) },
+  ];
+
+  return (
+    <div className="p-6 min-h-screen bg-gradient-to-br from-pink-100 via-purple-100 to-indigo-100">
+      <h1 className="text-2xl font-bold mb-6 text-center text-gray-800">이동수단 비교</h1>
+      <div className="flex space-x-4 overflow-x-auto pb-4">
+        {columns.map((column, index) => (
+          <TransportColumn
+            key={index}
+            title={column.title}
+            transports={transports.filter(column.filter)}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+Slide1.title = "이동수단 비교";
+Slide1.chapterNumber = "1.";
+
+export default Slide1;
